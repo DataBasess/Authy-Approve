@@ -44,34 +44,14 @@ export class LoginPage {
   Login(user:User){
       this.Auth.auth.signInWithEmailAndPassword(user.email,user.password).then(result=>{
         console.log('pass',result.uid);
-        this.PersonalService.getPersonal(result.uid).subscribe(res=>{
-          console.log(res.phoneNumber);
-          if(res.phoneNumber==''){
-            console.log('toVerifyPhonenumber');
-            this.navCtrl.setRoot('VerifyPhonenumberPage');    
-            const root = this.app.getRootNav();
-              root.popToRoot();
-          }else{
-            if(res.firstName==''){
-                console.log('VerifyPhonenumber Pass');
-                this.navCtrl.setRoot('AddPersonalPage');    
-                const root = this.app.getRootNav();
-                  root.popToRoot();
-            }else{
-                console.log('Pass');
-                this.navCtrl.setRoot('HomePage');    
-                const root = this.app.getRootNav();
-                  root.popToRoot();
-            }            
-          }          
-        });
+          result.uid!=null?this.gotoRoot('HomePage'):this.gotoRoot('LoginPage');
       });
   }
 
-  gotoLoginApprover(){
-    this.navCtrl.setRoot('LoginApproverPage');    
-            const root = this.app.getRootNav();
-              root.popToRoot();
+  gotoRoot(page:string){
+    this.navCtrl.setRoot(page);    
+    const root = this.app.getRootNav();
+    root.popToRoot();
 
   }
 

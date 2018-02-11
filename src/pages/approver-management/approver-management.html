@@ -1,0 +1,69 @@
+
+<ion-header>    
+  <ion-navbar>
+    <button ion-button menuToggle icon-only>
+        <ion-icon name='menu'></ion-icon>
+    </button>
+    <ion-title>Approver Management</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+    <ion-list>
+        <!-- <ion-item *ngFor="let approver of approvers">
+          <ion-thumbnail item-start>
+            <img src="img/thumbnail-totoro.png">
+          </ion-thumbnail>
+          <h2>{{approver.titleName}} {{approver.firstName}} {{approver.lastName}}</h2>
+          <p>{{approver.jobPosition}}</p>
+          <button ion-button clear item-end>Edite</button>
+          <button ion-button clear item-end>Remove</button>
+        </ion-item> -->
+
+        <ion-item-sliding *ngFor="let approver of approvers">
+            <ion-item>
+              <ion-avatar item-start>
+                <img src="img/slimer.png">
+              </ion-avatar>
+              <h2>{{approver.titleName}} {{approver.firstName}} {{approver.lastName}}</h2>
+              <p>{{approver.jobPosition}}</p>
+            </ion-item>
+            <ion-item-options side="left">
+              <button ion-button color="secondary" (click)="editApprover(approver)">
+                <ion-icon name="md-create"></ion-icon>
+                Edite
+              </button>
+              <button ion-button color="danger" (click)="showConfirm(approver.$key)">
+                <ion-icon name="ios-trash-outline"></ion-icon>
+                Remove
+              </button>
+            </ion-item-options>
+            <!-- <ion-item-options side="right">
+              <button ion-button color="primary">
+                <ion-icon name="mail"></ion-icon>
+                Email
+              </button>
+            </ion-item-options> -->
+          </ion-item-sliding>
+        
+    </ion-list>
+
+    
+
+
+
+
+
+    <ion-fab right bottom>
+        <button ion-fab  navPush="AddApproverPage"><ion-icon name="add"></ion-icon></button>
+        <!-- <ion-fab-list side="left">
+          <button ion-fab><ion-icon name="logo-facebook"></ion-icon></button>
+          <button ion-fab><ion-icon name="logo-twitter"></ion-icon></button>
+          <button ion-fab><ion-icon name="logo-vimeo"></ion-icon></button>
+          <button ion-fab><ion-icon name="logo-googleplus"></ion-icon></button>
+        </ion-fab-list> -->
+    </ion-fab>
+</ion-content>

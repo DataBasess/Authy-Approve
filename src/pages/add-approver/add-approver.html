@@ -1,0 +1,56 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>add-approver</ion-title>
+  </ion-navbar>
+
+</ion-header>
+<ion-content padding>
+
+    <div class="center_screen">
+        <div class="pro-pic-change">
+            <div class="image">
+              <!-- <img [src]="assets/img/user-icon.png" *ngIf="base64Image"/> -->
+              <img src="assets/img/user-icon.png" />
+              <!-- <img *ngIf="pictureProfile!=''" src="{{pictureProfile}}|async" /> -->  
+            </div>
+            <button ion-button round outline color=primary (click)="takePictureProfile()">
+              <ion-icon name="md-camera"></ion-icon>
+            </button>
+        </div>
+        <div class="input_area">
+            <ion-icon name="md-person"></ion-icon>
+            <input type="text" placeholder="UID User" [(ngModel)]="UID" >
+        </div>
+        <div class="input_area"> 
+            <ion-icon name="md-people"></ion-icon>
+            <ion-select interface="action-sheet" placeholder="Select titleName" [(ngModel)]="approver.titleName" >
+              <ion-option>Mr.</ion-option>
+              <ion-option>Miss</ion-option>
+              <ion-option>Mrs.</ion-option>
+            </ion-select>
+        </div>
+        <div class="input_area">
+            <ion-icon name="md-person"></ion-icon>
+            <input type="text" placeholder="FirstName" [(ngModel)]="approver.firstName" >
+        </div>
+        <div class="input_area">
+            <ion-icon name="md-person"></ion-icon>
+            <input type="text" placeholder="LastName"  [(ngModel)]="approver.lastName" >
+        </div>
+        <div class="input_area"> 
+            <ion-icon name="ios-briefcase"></ion-icon>
+            <ion-select interface="action-sheet" placeholder="Select jobPosition" [(ngModel)]="approver.jobPosition" >
+              <ion-option>Admin</ion-option>
+              <ion-option>Approver</ion-option>
+            </ion-select>
+        </div>
+        <button ion-button  full (click)="addApprover(approver)" >SUBMIT</button>
+
+    </div>
+
+    
+
+
+
+</ion-content>

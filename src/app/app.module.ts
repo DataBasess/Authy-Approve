@@ -17,11 +17,11 @@ import { ApprovePersonalServiceProvider } from '../providers/approve-personal-se
 import { TansectionServiceProvider } from '../providers/tansection-service/tansection-service';
 import { BlockchainServiceProvider } from '../providers/blockchain-service/blockchain-service';
 import { HttpClientModule } from '@angular/common/http';
+import { ApproverServiceProvider } from '../providers/approver-service/approver-service';
 
 @NgModule({
   declarations: [
-    MyApp,
-    HomePage
+    MyApp
   ],
   imports: [
     BrowserModule,
@@ -33,8 +33,7 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp,
-    HomePage
+    MyApp
   ],
   providers: [
     StatusBar,
@@ -45,7 +44,8 @@ import { HttpClientModule } from '@angular/common/http';
     VerifyPhonenumberServiceProvider,
     ApprovePersonalServiceProvider,
     TansectionServiceProvider,
-    BlockchainServiceProvider
+    BlockchainServiceProvider,
+    ApproverServiceProvider
   ]
 })
 export class AppModule {}
